@@ -10,8 +10,11 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            GradeBook book = new GradeBook();
+
+            book.AddGrade(91);
+            book.AddGrade(89.5f);
+
         }
     }
 }
