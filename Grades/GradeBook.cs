@@ -37,9 +37,9 @@ namespace Grades
             return stats;
         }
 
-        //grades are made private so the can only be update via the methode AddGrade
-       private List<float> grades; 
+        public string Name; 
+       private List<float> grades; //grades are made private so the can only be update via the methode AddGrade
 
-       
+
     }
 }
