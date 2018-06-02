@@ -24,8 +24,10 @@ namespace Grades.Tests
             [TestMethod]
         public void PassByValue()
         {
-            GradeBook book = new GradeBook();
-            book.Name = "Not set";
+            GradeBook book = new GradeBook
+            {
+                Name = "Not set"
+            };
             SetName(book);
             Assert.AreEqual("Name set", book.Name);
 
