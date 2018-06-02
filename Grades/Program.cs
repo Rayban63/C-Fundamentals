@@ -19,6 +19,13 @@ namespace Grades
         }
         static void Main(string[] args)
         {
+            string name1 = "Scott";
+            string name2 = "scott";
+
+            bool areEqual = name1.Equals(name2, StringComparison.InvariantCulture);
+            Console.WriteLine(areEqual);
+
+
             GradeBook g1 = new GradeBook(); // make new instance of the gradebook
             GradeBook g2 = g1; //set reference type g2 to be equal to g1
 
