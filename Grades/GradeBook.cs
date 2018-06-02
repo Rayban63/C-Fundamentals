@@ -8,9 +8,12 @@ namespace Grades
 {
     public class GradeBook
     {
-        public GradeBook()
+     
+        public GradeBook(string name = "There is no name")// this is the default value when no name is passed in.
         {
+            Name = name;
             grades = new List<float>();
+
         }
         public void AddGrade(float grade)
         {
@@ -37,7 +40,21 @@ namespace Grades
             return stats;
         }
 
-        public string Name; 
+        private string _name;
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _name = value;
+                }
+            }
+        }
        private List<float> grades; //grades are made private so the can only be update via the methode AddGrade
 
 

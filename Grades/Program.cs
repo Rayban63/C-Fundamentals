@@ -12,11 +12,7 @@ namespace Grades
         static void Main(string[] args)
         {
 
-            GradeBook book = new GradeBook();
-
-            WriteNames("Ray", "Bob", "Jill", "Jeremy");
-            int number = 20;
-            WriteBytes(number);
+            GradeBook book = new GradeBook("Ray's Gradebook");
 
             book.AddGrade(91);
             book.AddGrade(89.1f);
@@ -24,7 +20,9 @@ namespace Grades
 
             GradeStatistics stats = book.ComputeStatistics();
 
-            WriteBytes(stats.AverageGrade);
+            book.Name = "";
+            WriteNames(book.Name);
+
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
