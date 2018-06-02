@@ -14,7 +14,12 @@ namespace Grades
         }
         public void AddGrade(float grade)
         {
-            grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                grades.Add(grade);
+
+            }
+           
         }
         public GradeStatistics ComputeStatistics()
         {
@@ -22,7 +27,7 @@ namespace Grades
         }
 
 
-        List<float> grades;
+       private List<float> grades;
 
        
     }
