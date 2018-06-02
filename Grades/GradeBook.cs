@@ -40,7 +40,7 @@ namespace Grades
             return stats;
         }
 
-        private string _name;
+        private string _name;// field is set to private so name can only be set via the property Name
         public string Name
         {
             get
