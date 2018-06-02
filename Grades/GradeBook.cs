@@ -23,7 +23,18 @@ namespace Grades
         }
         public GradeStatistics ComputeStatistics()
         {
-            return new GradeStatistics();
+            GradeStatistics stats = new GradeStatistics();
+            float sum = 0f; //this variable is to calculate the total ammount of grades
+
+            foreach (float grade in grades)
+            {
+                stats.HighestGrade = Math.Max(grade, stats.HighestGrade); //overwrite initial grade in GradeStatistics when grade is higher
+                stats.LowestGrade = Math.Min(grade, stats.LowestGrade); //overwrite initial grade in GradeStatistics when grade is lower
+                sum += grade;
+
+            }
+            stats.AverageGrade = sum / grades.Count; //Calculate the average of the sum and add them to Averagegrade
+            return stats;
         }
 
         //grades are made private so the can only be update via the methode AddGrade
