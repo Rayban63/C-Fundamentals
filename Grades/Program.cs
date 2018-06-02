@@ -19,26 +19,10 @@ namespace Grades
         }
         static void Main(string[] args)
         {
-            string name1 = "Scott";
-            string name2 = "scott";
-
-            bool areEqual = name1.Equals(name2, StringComparison.InvariantCulture);
-            Console.WriteLine(areEqual);
+            Immutable();
+            //PassByValueAndRef();
 
 
-            GradeBook g1 = new GradeBook(); // make new instance of the gradebook
-            GradeBook g2 = g1; //set reference type g2 to be equal to g1
-
-            GiveBookAName(g2);// invoke GiveBookAName
-           
-            Console.WriteLine(g1.Name);/* console output will be The Gradebook, because all the references
-            (g1, g2 and book) are pointing towards the object of Gradebook*/
-
-            int x1 = 4;
-            IncrementANumber(x1);
-            Console.WriteLine(x1); // console output will remain 4 because the methode IncrementANumber can't change x1
-
-          
 
             //GradeBook book = new GradeBook();
 
@@ -51,6 +35,40 @@ namespace Grades
             //Console.WriteLine(stats.LowestGrade);
             //Console.WriteLine(stats.HighestGrade);
 
+        }
+
+        private static void Immutable()
+        {
+            // A string is immutable
+            string name = " Scott "; // string with whitespaces
+            name.Trim();//remove all of the whitespaces and creates a new variable
+            Console.WriteLine(name);// name with whitespaces will be printed in the console
+
+            
+            name = name.Trim(); //assign the new var to the var name
+            Console.WriteLine(name);// now the whitespaces are removed
+
+            DateTime date = new DateTime(2018, 6, 2); // the same applies to the date value
+            date.AddHours(25);
+            Console.WriteLine(date);
+
+            date = date.AddHours(25);
+            Console.WriteLine(date);
+        }
+
+        private static void PassByValueAndRef()
+        {
+            GradeBook g1 = new GradeBook(); // make new instance of the gradebook
+            GradeBook g2 = g1; //set reference type g2 to be equal to g1
+
+            GiveBookAName(g2);// invoke GiveBookAName
+
+            Console.WriteLine(g1.Name);/* console output will be The Gradebook, because all the references
+            (g1, g2 and book) are pointing towards the object of Gradebook*/
+
+            int x1 = 4;
+            IncrementANumber(x1);
+            Console.WriteLine(x1); // console output will remain 4 because the methode IncrementANumber can't change x1
         }
     }
 }
