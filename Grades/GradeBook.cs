@@ -51,10 +51,13 @@ namespace Grades
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+                    var oldValue = _name;//This is a variable that references to the methode NameChanged
                     _name = value;
+                    NameChanged?.Invoke(oldValue, value);
                 }
             }
         }
+        public NameChangedDelegate NameChanged;
        private List<float> grades; //grades are made private so the can only be update via the methode AddGrade
 
 

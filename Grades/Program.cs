@@ -19,14 +19,26 @@ namespace Grades
             book.AddGrade(75f);
 
             GradeStatistics stats = book.ComputeStatistics();
+            book.NameChanged += OnNameChanged;//This is the subscriber that listence to the namechanged delegate and invokes onNameChanged
+            book.NameChanged += OnNameChanged2;//This is the subscriber that listence to the namechanged delegate and invokes onNameChanged2
 
-            book.Name = "";
+            book.Name = " Bill's Gradebook";
             WriteNames(book.Name);
 
             Console.WriteLine(stats.AverageGrade);
             Console.WriteLine(stats.LowestGrade);
             Console.WriteLine(stats.HighestGrade);
 
+        }
+
+        private static void OnNameChanged2(string oldValue, string newValue)
+        {
+            Console.WriteLine("***");
+        }
+
+        private static void OnNameChanged(string oldValue, string newValue)
+        {
+            Console.WriteLine("Name Changed from {0} to {1} ", oldValue, newValue);
         }
 
         private static void WriteBytes(int value)//This methode stores the value of the variable number
