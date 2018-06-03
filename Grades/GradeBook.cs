@@ -53,11 +53,11 @@ namespace Grades
                 {
                     var oldValue = _name;//This is a variable that references to the methode NameChanged
                     _name = value;
-                    NameChanged?.Invoke(oldValue, value);
+                    NameChanged?.Invoke(oldValue, value);//this is the Delegate
                 }
             }
         }
-        public NameChangedDelegate NameChanged;
+        public event NameChangedDelegate NameChanged; // by adding the keyword event this delegate is promoted to an event
        private List<float> grades; //grades are made private so the can only be update via the methode AddGrade
 
 

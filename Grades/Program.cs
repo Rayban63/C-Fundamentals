@@ -19,8 +19,12 @@ namespace Grades
             book.AddGrade(75f);
 
             GradeStatistics stats = book.ComputeStatistics();
-            book.NameChanged += OnNameChanged;//This is the subscriber that listence to the namechanged delegate and invokes onNameChanged
-            book.NameChanged += OnNameChanged2;//This is the subscriber that listence to the namechanged delegate and invokes onNameChanged2
+            book.NameChanged += OnNameChanged;//This is the subscriber that listence to the namechanged event and invokes onNameChanged
+            book.NameChanged += OnNameChanged2;//This is the subscriber that listence to the namechanged event and invokes onNameChanged2
+            book.NameChanged += OnNameChanged2;//This is the subscriber that listence to the namechanged event and invokes onNameChanged2
+            book.NameChanged -= OnNameChanged2;//This is how to unsubsribe from an event
+
+
 
             book.Name = " Bill's Gradebook";
             WriteNames(book.Name);
