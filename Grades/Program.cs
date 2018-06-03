@@ -35,14 +35,14 @@ namespace Grades
 
         }
 
-        private static void OnNameChanged2(string oldValue, string newValue)
+        private static void OnNameChanged2(object sender, NameChangedEventArgs args)
         {
             Console.WriteLine("***");
         }
 
-        private static void OnNameChanged(string oldValue, string newValue)
+        private static void OnNameChanged(object sender, NameChangedEventArgs args)
         {
-            Console.WriteLine("Name Changed from {0} to {1} ", oldValue, newValue);
+            Console.WriteLine("Name Changed from {0} to {1} ", args.OldValue, args.NewValue);
         }
 
         private static void WriteBytes(int value)//This methode stores the value of the variable number

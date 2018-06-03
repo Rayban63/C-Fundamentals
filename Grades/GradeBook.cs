@@ -51,9 +51,15 @@ namespace Grades
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    var oldValue = _name;//This is a variable that references to the methode NameChanged
+                    var oldValue = _name;
                     _name = value;
-                    NameChanged?.Invoke(oldValue, value);//this is the Delegate
+                    if (NameChanged != null)
+                    {
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.OldValue = oldValue;
+                        args.NewValue = value;
+                        NameChanged(this, args);
+                    }
                 }
             }
         }
