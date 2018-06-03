@@ -17,30 +17,59 @@ namespace Grades
         public float HighestGrade;
         public float LowestGrade;
 
-        public string LetterGrade
+        public string Description
         {
             get
             {
                 string result;
+                switch (LetterGrade)
+                {
+                    case 'A':
+                        result = "excellent";
+                        break;
+                    case 'B':
+                        result = "above average";
+                        break;
+                    case 'C':
+                        result = "average";
+                        break;
+                    case 'D':
+                        result = "below average";
+                        break;
+                    default:
+                        result = "a fail";
+                        break;
+
+                }
+                return result;
+            }
+                
+        }
+
+        public char LetterGrade
+        {
+            get
+            {
+                char result;
                 if (AverageGrade >= 90)
                 {
-                    result = "A";
+                    result = 'A';
                 }
                 else if (AverageGrade >= 80)
                 {
-                    result = "B";
+                    result = 'B';
                 }
                 else if (AverageGrade >= 70)
                 {
-                    result = "C";
+                    result = 'C';
                 }
                 else if(AverageGrade >= 60)
                 {
-                    result = "D";
+                    result = 'D';
                 }
                 else
                 {
-                    result = "F";
+                    result = 'F';
                 }
 
                 return result;
