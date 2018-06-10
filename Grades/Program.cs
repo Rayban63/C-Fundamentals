@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Synthesis;
+using System.IO;
 
 namespace Grades
 {
@@ -12,13 +13,46 @@ namespace Grades
         static void Main(string[] args)
         {
 
-            GradeBook book = new GradeBook("Ray's Gradebook");
+            GradeBook book = new GradeBook("Ray's Grade book");
+
+            try
+            {
+                string[] lines = File.ReadAllLines("grades.txt");
+                foreach (string line in lines)
+                {
+                    float grade = float.Parse(line);
+                    book.AddGrade(grade);
+                }
+
+            }
+            catch (FileNotFoundException ex)
+            {
+
+                Console.WriteLine("Could not locate the file");
+                return;
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Console.WriteLine("You donn't have acces to this file");
+                return;
+            }
+          
+            book.WriteGrades(Console.Out);
+
+            try
+            {
+                Console.WriteLine("Please enter your name");
+                book.Name = Console.ReadLine();
+
+            }
+            catch (ArgumentException ex)
+            {
+
+                Console.WriteLine("Invalide name");
+            }
+
            
 
-            book.AddGrade(91);
-            book.AddGrade(89.1f);
-            book.AddGrade(75f);
-            book.WriteGrades(Console.Out);
             
 
             GradeStatistics stats = book.ComputeStatistics();
