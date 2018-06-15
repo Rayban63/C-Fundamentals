@@ -38,7 +38,7 @@ namespace Grades
             textWriter.WriteLine("******** ");
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
             Console.WriteLine("GradeBook Compute");
             GradeStatistics stats = new GradeStatistics();

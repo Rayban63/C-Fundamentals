@@ -14,9 +14,9 @@ namespace Grades
             Console.WriteLine("ThrowAway ctor");
 
         }
-        public GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics()
         {
-            Console.WriteLine("ThrowAwayGradeBook");
+            Console.WriteLine("ThrowAway Compute");
             float lowest = float.MaxValue;
             foreach (float grade in _grades)
             {

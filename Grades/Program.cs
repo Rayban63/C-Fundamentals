@@ -12,8 +12,7 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-
-            GradeBook book = new ThrowAwayGradeBook("Ray's Grade book");
+            GradeBook book = CreateGradeBook();
 
             try
             {
@@ -43,7 +42,7 @@ namespace Grades
                 Console.WriteLine("You donn't have acces to this file");
                 return;
             }
-          
+
             book.WriteGrades(Console.Out);
 
             try
@@ -58,9 +57,9 @@ namespace Grades
                 Console.WriteLine("Invalide name");
             }
 
-           
 
-            
+
+
 
             GradeStatistics stats = book.ComputeStatistics();
 
@@ -71,6 +70,10 @@ namespace Grades
 
         }
 
-       
+        private static GradeBook CreateGradeBook()
+        {
+            return new ThrowAwayGradeBook("Ray's Grade book");
+        }
+
     }
 }
