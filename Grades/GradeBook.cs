@@ -40,6 +40,7 @@ namespace Grades
 
         public GradeStatistics ComputeStatistics()
         {
+            Console.WriteLine("GradeBook Compute");
             GradeStatistics stats = new GradeStatistics();
             float sum = 0f; //this variable is to calculate the total ammount of grades
 
@@ -85,7 +86,7 @@ namespace Grades
             }
         }
         public event NameChangedDelegate NameChanged; // by adding the keyword event this delegate is promoted to an event
-       private List<float> _grades; //grades are made private so the can only be update via the methode AddGrade
+       protected List<float> _grades; //grades are made protected so the TrowAwayGradeBook can this field.
 
 
     }

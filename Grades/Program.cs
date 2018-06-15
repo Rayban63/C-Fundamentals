@@ -13,7 +13,7 @@ namespace Grades
         static void Main(string[] args)
         {
 
-            GradeBook book = new GradeBook("Ray's Grade book");
+            GradeBook book = new ThrowAwayGradeBook("Ray's Grade book");
 
             try
             {
