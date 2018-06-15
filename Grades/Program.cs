@@ -12,7 +12,7 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book = CreateGradeBook();
+            GradeTracker book = CreateGradeBook();
 
             try
             {
@@ -70,9 +70,10 @@ namespace Grades
 
         }
 
-        private static GradeBook CreateGradeBook()
+        private static GradeTracker CreateGradeBook()
         {
-            return new ThrowAwayGradeBook("Ray's Grade book");
+            GradeTracker book =  new ThrowAwayGradeBook("Ray's Grade book");
+            return book;
         }
 
     }
