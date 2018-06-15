@@ -17,11 +17,18 @@ namespace Grades
 
             try
             {
-                string[] lines = File.ReadAllLines("grades.txt");
-                foreach (string line in lines)
+                using (FileStream stream = File.Open("grades.txt", FileMode.Open))
+                using (StreamReader reader = new StreamReader(stream))
+
                 {
-                    float grade = float.Parse(line);
-                    book.AddGrade(grade);
+                    string line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        float grade = float.Parse(line);
+                        book.AddGrade(grade);
+                        line = reader.ReadLine();
+
+                    }
                 }
 
             }
