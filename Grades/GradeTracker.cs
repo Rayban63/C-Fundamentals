@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    public interface IGradeTracker
+    public interface IGradeTracker : IEnumerable
     {
         void AddGrade(float grade);
         GradeStatistics ComputeStatistics();
@@ -22,6 +23,7 @@ namespace Grades
         public abstract void AddGrade(float grade);
         public abstract GradeStatistics ComputeStatistics();
         public abstract void WriteGrades(TextWriter textWriter);
+        public abstract IEnumerator GetEnumerator();
 
         private string _name;// field is set to private so name can only be set via the property Name
         public string Name
