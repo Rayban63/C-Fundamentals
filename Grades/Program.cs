@@ -12,7 +12,7 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeTracker book = CreateGradeBook();
+            IGradeTracker book = CreateGradeBook();
 
             try
             {
@@ -31,7 +31,7 @@ namespace Grades
                 }
 
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
 
                 Console.WriteLine("Could not locate the file");
@@ -70,9 +70,9 @@ namespace Grades
 
         }
 
-        private static GradeTracker CreateGradeBook()
+        private static IGradeTracker CreateGradeBook()
         {
-            GradeTracker book =  new ThrowAwayGradeBook("Ray's Grade book");
+            IGradeTracker book =  new ThrowAwayGradeBook("Ray's Grade book");
             return book;
         }
 
